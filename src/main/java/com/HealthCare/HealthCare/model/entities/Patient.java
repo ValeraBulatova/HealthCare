@@ -3,11 +3,13 @@ package com.HealthCare.HealthCare.model.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import lombok.Data;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
+@Data
 @Getter
 @Entity
 public class Patient {
@@ -24,8 +26,5 @@ public class Patient {
     private String phone;
     private String email;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 }
