@@ -34,6 +34,8 @@ public class PatientService {
         updatedPatient.setPhone(patient.getPhone());
         updatedPatient.setGender(patient.getGender());
 
+        patientRepository.save(updatedPatient);
+
         return String.format("Patient %s %s with id %d was updated successfully", patient.getName(), patient.getSurname(), patient.getId());
     }
     public String deletePatient(Long id) {
