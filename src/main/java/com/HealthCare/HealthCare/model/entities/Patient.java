@@ -3,8 +3,8 @@ package com.HealthCare.HealthCare.model.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
@@ -12,7 +12,6 @@ import java.time.LocalDate;
 @Entity
 public class Patient {
 
-    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,6 +22,22 @@ public class Patient {
     private String address;
     private String phone;
     private String email;
+
+    public Patient(String name, String surname, String dob, String gender,
+                   String address, String phone, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = LocalDate.parse(dob);
+        this.gender = gender;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.id = null;
+    }
+
+    public Patient() {
+
+    }
 
     public void setId(Long id) {
         this.id = id;

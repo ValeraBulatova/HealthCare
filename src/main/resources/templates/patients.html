@@ -1,58 +1,41 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>patients</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Patients</title>
 </head>
 <body>
-
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
-        <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">
+<div class="container">
+    <h1>Patients</h1>
+    <table class="patient-table">
+        <thead>
         <tr>
-            <th scope="col" class="px-6 py-3">
-                Patient Id
-            </th>
-            <th scope="col" class="px-6 py-3">
-                First name
-            </th>
-            <th scope="col" class="px-6 py-3">
-                last name
-            </th>
-            <th scope="col" class="px-6 py-3">
-                gender
-            </th>
-            <th scope="col" class="px-6 py-3">
-                email
-            </th>
-
+            <th>Patient ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
         </tr>
         </thead>
         <tbody>
-        <tr class="bg-blue-500 border-b border-blue-400" th:each="patient: ${Patient}">
-            <th th:text="${patient.id}" scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-
-            </th>
-            <td class="px-6 py-4" th:text="${patient.name}">
-
-            </td>
-            <td class="px-6 py-4" th:text="${patient.surname}">
-
-            </td>
-            <td class="px-6 py-4" th:text="${patient.gender}">
-
-            </td>
-            <td class="px-6 py-4" th:text="${patient.email}">
-
-            </td>
-
+        <!-- Iterate through the list of patients and display their information -->
+        <tr th:each="patient : ${Patient}">
+            <td th:text="${patient.id}"></td>
+            <td th:text="${patient.name}"></td>
+            <td th:text="${patient.surname}"></td>
+            <td th:text="${patient.dateOfBirth}"></td>
+            <td th:text="${patient.gender}"></td>
+            <td th:text="${patient.address}"></td>
+            <td th:text="${patient.phone}"></td>
+            <td th:text="${patient.email}"></td>
         </tr>
-
         </tbody>
     </table>
 </div>
-
 </body>
 </html>
