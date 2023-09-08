@@ -4,10 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
-
+@Setter
 @Getter
 @Entity
 public class Patient {
@@ -24,8 +25,6 @@ public class Patient {
     private String phone;
     private String email;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
 }
