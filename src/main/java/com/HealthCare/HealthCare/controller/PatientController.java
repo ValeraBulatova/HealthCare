@@ -1,6 +1,7 @@
 package com.HealthCare.HealthCare.controller;
 
 import com.HealthCare.HealthCare.model.entities.Patient;
+import com.HealthCare.HealthCare.service.PatientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,13 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PatientController {
 
+    private PatientService patientService;
+
+    public PatientController(PatientService patientService) {
+        this.patientService = patientService;
+    }
 
     @GetMapping("/patients")
     public String showPatientView(Model m){
-
-        m.addAttribute("Patient",
-                new Patient("bob", "Marley", "2000-02-03", "male",
-                        "address", "phone", "email"));
+        // Add the list of patients to the model
+        m.addAttribute("Patient", patientService.getPatients());
 
         return "patients";
     }
@@ -23,8 +27,8 @@ public class PatientController {
     @PostMapping("/patients/add")
     public String addPatient(Patient patient) {
         // Save the new patient to the database
-        //patientRepository.save(patient);
-        System.out.println(patient.getId());
+        patientService.createPatient(patient);
+
         return "redirect:/patients"; // Redirect back to the patient list
     }
 }
