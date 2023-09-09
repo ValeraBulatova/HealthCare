@@ -1,6 +1,7 @@
 package com.HealthCare.HealthCare.service;
 
 import com.HealthCare.HealthCare.model.entities.Patient;
+import org.hibernate.mapping.List;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,10 @@ public class PatientService {
 
     public Patient getPatient(Long id) {
         return patientRepository.findById(id);
+    }
+
+    public List<Patient> getPatients() {
+        return patientRepository.findAll();
     }
 
     public String createPatient(Patient patient) {
