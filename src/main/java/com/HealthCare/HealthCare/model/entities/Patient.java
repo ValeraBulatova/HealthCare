@@ -5,9 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
+
 
 @Data
 @Getter
@@ -46,5 +48,4 @@ public class Patient {
         this.phone = "Phone";
         this.email = "Email";
     }
-
 }
