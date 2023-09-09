@@ -28,4 +28,24 @@ public class Patient {
     private String phone;
     private String email;
 
+    public Patient(String name, String surname, String dob, String gender,
+                   String address, String phone, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = LocalDate.parse(dob);
+        this.gender = gender;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
+
+    public Patient() {
+        this.name = "Name";
+        this.surname = "Surname";
+        this.dateOfBirth = LocalDate.now();
+        this.gender = "Male";
+        this.address = "Address";
+        this.phone = "Phone";
+        this.email = "Email";
+    }
 }
