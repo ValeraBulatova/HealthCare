@@ -97,3 +97,12 @@ h1 {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
+/* Style for the "Delete" button */
+.delete-button {
+    background-color: #ff0000; /* Red background color */
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+

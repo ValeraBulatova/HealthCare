@@ -35,11 +35,16 @@ public class Patient {
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.id = null;
     }
 
     public Patient() {
-
+        this.name = "Name";
+        this.surname = "Surname";
+        this.dateOfBirth = LocalDate.now();
+        this.gender = "Male";
+        this.address = "Address";
+        this.phone = "Phone";
+        this.email = "Email";
     }
 
 }

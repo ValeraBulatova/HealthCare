@@ -4,8 +4,7 @@ import com.HealthCare.HealthCare.model.entities.Patient;
 import com.HealthCare.HealthCare.service.PatientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PatientController {
@@ -31,4 +30,12 @@ public class PatientController {
 
         return "redirect:/patients"; // Redirect back to the patient list
     }
+
+    @PostMapping("/patients/delete")
+    public String deletePatient(@RequestParam Long id) {
+        patientService.deletePatient(id);
+
+        return "redirect:/patients"; // Redirect back to the patient list
+    }
+
 }
