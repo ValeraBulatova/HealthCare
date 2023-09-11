@@ -17,6 +17,16 @@ h1 {
     text-align: center;
 }
 
+a {
+    color: #007bff; /* Blue color */
+    text-decoration: none; /* Remove underlines */
+    transition: color 0.2s; /* Smooth color transition on hover */
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue color on hover */
+}
+
 .patient-table {
     width: 100%;
     border-collapse: collapse;
@@ -48,7 +58,7 @@ h1 {
 /* Container styles */
 .add-patient-form {
     max-width: 400px;
-    margin: 0;
+    margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;

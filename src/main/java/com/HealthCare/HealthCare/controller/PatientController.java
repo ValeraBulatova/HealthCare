@@ -1,6 +1,7 @@
 package com.HealthCare.HealthCare.controller;
 
 import com.HealthCare.HealthCare.model.entities.Patient;
+import com.HealthCare.HealthCare.service.PatientRepository;
 import com.HealthCare.HealthCare.service.PatientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,14 @@ public class PatientController {
         return "patients";
     }
 
-    @PostMapping("/patients/add")
+    @GetMapping("/add-patient")
+    public String showAddPatientView(){
+        //m.addAttribute("Patient", new Patient());
+
+        return "add-patient";
+    }
+
+    @PostMapping("/add-patient/add")
     public String addPatient(Patient patient) {
         // Save the new patient to the database
         patientService.createPatient(patient);
