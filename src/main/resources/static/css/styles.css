@@ -18,13 +18,19 @@ h1 {
 }
 
 a {
-    color: #007bff; /* Blue color */
-    text-decoration: none; /* Remove underlines */
-    transition: color 0.2s; /* Smooth color transition on hover */
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    margin: 10px auto;
+    text-decoration: none;
+    width: 200px;
 }
 
 a:hover {
-    color: #0056b3; /* Darker blue color on hover */
+    color: #000000;
 }
 
 .patient-table {
