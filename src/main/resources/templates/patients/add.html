@@ -4,50 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{/css/styles.css}" rel="stylesheet" />
-    <title>Patients</title>
+    <title>Add New Patient</title>
 </head>
 <body>
 <div class="container">
-    <h1>Patients</h1>
-    <table class="patient-table">
-        <thead>
-        <tr>
-            <th>Patient ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Birth</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Iterate through the list of patients and display their information -->
-        <tr th:each="patient : ${Patient}">
-            <td th:text="${patient.id}"></td>
-            <td th:text="${patient.name}"></td>
-            <td th:text="${patient.surname}"></td>
-            <td th:text="${patient.dateOfBirth}"></td>
-            <td th:text="${patient.gender}"></td>
-            <td th:text="${patient.address}"></td>
-            <td th:text="${patient.phone}"></td>
-            <td th:text="${patient.email}"></td>
-            <td>
+    <!-- Include the navigation bar -->
+    <div th:replace="/navbar :: navbar"></div>
 
-                <!-- Delete button within a form -->
-                <form th:action="@{/patients/delete}" method="post">
-                    <input type="hidden" name="id" th:value="${patient.id}" />
-                    <button type="submit" class="delete-button">Delete</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <h1>Add New Patient</h1>
 
     <div class="add-patient-form">
-        <h2>Add New Patient</h2>
-        <form th:action="@{/patients/add}" method="post">
+        <form th:action="@{/patients/add/confirm}" method="post">
             <label for="name">First Name:</label>
             <input type="text" id="name" name="name" required>
             <br>
@@ -82,7 +49,6 @@
             <button type="submit">Add Patient</button>
         </form>
     </div>
-
 </div>
 </body>
 </html>
