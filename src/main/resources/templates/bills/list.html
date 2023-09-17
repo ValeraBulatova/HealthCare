@@ -8,9 +8,53 @@
 </head>
 <body>
 <div class="container">
-    <div th:replace="/navbar :: navbar"></div>
+    <div th:replace="~{/navbar :: navbar}"></div>
 
     <h1>Bills</h1>
+
+    <div class="table-container"> <!-- Wrap the table in a container for scrolling -->
+        <table class="info-table">
+            <thead>
+            <tr>
+                <th>Bill ID</th>
+                <th>Patient ID</th>
+                <th>Appointment ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Payment Method</th>
+                <th>Expenses Description</th>
+                <th>Cost</th>
+                <th>Status</th>
+                <th>Modify</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Iterate through the list of bills and display their information -->
+            <tr th:each="bill : ${Bill}">
+                <td th:text="${bill.id}"></td>
+                <td th:text="${bill.patientId}"></td>
+                <td th:text="${bill.appointmentId}"></td>
+                <td th:text="${bill.date}"></td>
+                <td th:text="${bill.time}"></td>
+                <td th:text="${bill.paymentMethod}"></td>
+                <td th:text="${bill.expensesDescription}"></td>
+                <td th:text="${bill.cost}"></td>
+                <td th:text="${bill.status} ? 'Paid' : 'Unpaid'"></td>
+                <td>
+                    <!-- Delete button within a form -->
+                    <form th:action="@{/bills/delete}" method="post">
+                        <input type="hidden" name="id" th:value="${bill.id}" />
+                        <button type="submit" class="common-button delete-button">Delete</button>
+                    </form>
+                    <form th:action="@{/bills/update}" method="get">
+                        <input type="hidden" name="id" th:value="${bill.id}" />
+                        <button type="submit" class="common-button update-button">Update</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 </body>

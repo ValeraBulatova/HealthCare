@@ -16,7 +16,7 @@ public class Bill {
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private int patientId;
     private int appointmentId;
     private LocalDate date;
