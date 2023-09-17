@@ -99,10 +99,8 @@ a:hover {
     background-color: #ddd;
 }
 
-/* CSS rules for the add patient form */
-
 /* Container styles */
-.add-patient-form {
+.add-form {
     max-width: 600px;
     margin: 20px auto;
     padding: 30px;
@@ -112,24 +110,24 @@ a:hover {
 }
 
 /* Form header styles */
-.add-patient-form h2 {
+.add-form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #007bff; /* Blue header text color */
 }
 
 /* Label styles */
-.add-patient-form label {
+.add-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
 /* Input styles */
-.add-patient-form input[type="text"],
-.add-patient-form input[type="date"],
-.add-patient-form input[type="email"],
-.add-patient-form select {
+.add-form input[type="text"],
+.add-form input[type="date"],
+.add-form input[type="email"],
+.add-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -138,7 +136,7 @@ a:hover {
 }
 
 /* Button styles */
-.add-patient-form button[type="submit"] {
+.add-form button[type="submit"] {
     background-color: #007bff; /* Blue button background color */
     color: #fff; /* Button text color */
     border: none;
@@ -149,7 +147,7 @@ a:hover {
 }
 
 /* Button hover effect */
-.add-patient-form button[type="submit"]:hover {
+.add-form button[type="submit"]:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
