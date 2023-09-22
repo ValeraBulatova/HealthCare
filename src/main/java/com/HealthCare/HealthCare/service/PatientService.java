@@ -1,6 +1,7 @@
 package com.HealthCare.HealthCare.service;
 
 import com.HealthCare.HealthCare.model.entities.Patient;
+import com.HealthCare.HealthCare.service.repo.PatientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,10 +30,6 @@ public class PatientService {
     }
     public String updatePatient(Patient patient) {
         Patient updatedPatient = patientRepository.findById(patient.getId());
-        if (updatedPatient == null) {
-//            TODO : uncomment row with exception, implement try/catch in controller for this exception
-//            throw new NoSuchFieldException(String.format("Patient with id %d was not found in database", patient.getId()));
-        }
         updatedPatient.setName(patient.getName());
         updatedPatient.setSurname(patient.getSurname());
         updatedPatient.setAddress(patient.getAddress());
@@ -46,10 +43,6 @@ public class PatientService {
     }
     public String deletePatient(Long id) {
         Patient patient = patientRepository.findById(id);
-        if (patient == null) {
-//            TODO : uncomment row with exception, implement try/catch in controller for this exception
-//            throw new NoSuchFieldException(String.format("Patient with id %d was not found in database", patient.getId()));
-        }
         patientRepository.delete(patient);
 
         return String.format("Patient %s %s with id %d was deleted successfully", patient.getName(), patient.getSurname(), id);
