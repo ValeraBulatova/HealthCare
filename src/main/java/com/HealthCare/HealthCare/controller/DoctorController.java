@@ -2,10 +2,11 @@ package com.HealthCare.HealthCare.controller;
 
 import com.HealthCare.HealthCare.model.entities.Doctor;
 import com.HealthCare.HealthCare.service.DoctorService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/doctors")
 public class DoctorController {
 
@@ -18,13 +19,13 @@ public class DoctorController {
     @GetMapping
     public String getAllDoctors(Model m) {
         m.addAttribute("Doctor", doctorService.getAllDoctors());
-        return "doctors/list";
+        return "/doctors/list";
     }
 
     @GetMapping("/select")
     public String getDoctor(@RequestParam Long id, Model m) {
         m.addAttribute("Doctor", doctorService.getDoctor(id));
-        return "doctors/select";
+        return "/doctors/select";
     }
 
     @PostMapping("/add/confirm")
