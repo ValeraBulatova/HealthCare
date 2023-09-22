@@ -1,4 +1,4 @@
-package com.HealthCare.HealthCare.service;
+package com.HealthCare.HealthCare.service.repo;
 
 import com.HealthCare.HealthCare.model.entities.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
