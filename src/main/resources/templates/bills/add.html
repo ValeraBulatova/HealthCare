@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Add New Bill</title>
+</head>
+<body>
+<div class="container">
+    <!-- Include the navigation bar -->
+    <div th:replace="~{/navbar :: navbar}"></div>
+
+    <h1>Add New Bill</h1>
+
+    <div class="add-form">
+        <form th:action="@{/bills/add/confirm}" method="post">
+            <label for="patientId">Patient ID:</label>
+            <input type="text" id="patientId" name="patientId" required>
+            <br>
+
+            <label for="appointmentId">Appointment ID:</label>
+            <input type="text" id="appointmentId" name="appointmentId" required>
+            <br>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <br>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+            <br>
+
+            <label for="paymentMethod">Payment Method:</label>
+            <input type="text" id="paymentMethod" name="paymentMethod" required>
+            <br>
+
+            <label for="expensesDescription">Expenses Description:</label>
+            <input type="text" id="expensesDescription" name="expensesDescription" required>
+            <br>
+
+            <label for="cost">Cost:</label>
+            <input type="number" id="cost" name="cost" required>
+            <br>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="true">Paid</option>
+                <option value="false">Unpaid</option>
+            </select>
+            <br>
+
+            <button type="submit">Add Bill</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
