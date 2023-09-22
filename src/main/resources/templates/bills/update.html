@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Update Bill</title>
+</head>
+<body>
+<div class="container">
+    <!-- Include the navigation bar -->
+    <div th:replace="~{/navbar :: navbar}"></div>
+
+    <h1>Update Bill</h1>
+
+    <div class="add-form">
+        <form th:action="@{/bills/update/confirm}" method="post">
+            <input type="hidden" id="id" name="id" th:value="${bill.id}" required>
+
+            <label for="patientId">Patient ID:</label>
+            <input type="text" id="patientId" name="patientId" th:value="${bill.patientId}" required>
+            <br>
+
+            <label for="appointmentId">Appointment ID:</label>
+            <input type="text" id="appointmentId" name="appointmentId" th:value="${bill.appointmentId}" required>
+            <br>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" th:value="${bill.date}" required>
+            <br>
+
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time" th:value="${bill.time}" required>
+            <br>
+
+            <label for="paymentMethod">Payment Method:</label>
+            <input type="text" id="paymentMethod" name="paymentMethod" th:value="${bill.paymentMethod}" required>
+            <br>
+
+            <label for="expensesDescription">Expenses Description:</label>
+            <input type="text" id="expensesDescription" name="expensesDescription" th:value="${bill.expensesDescription}" required>
+            <br>
+
+            <label for="cost">Cost:</label>
+            <input type="number" id="cost" name="cost" th:value="${bill.cost}" required>
+            <br>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="true" th:selected="${bill.status} == true">Paid</option>
+                <option value="false" th:selected="${bill.status} == false">Unpaid</option>
+            </select>
+            <br>
+
+            <button type="submit">Update Bill</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -8,11 +8,11 @@
 </head>
 <body>
 <div class="container">
-    <div th:replace="/navbar :: navbar"></div>
+    <div th:replace="~{/navbar :: navbar}"></div>
 
     <h1>Patients</h1>
 
-    <table class="patient-table">
+    <table class="info-table">
         <thead>
         <tr>
             <th>Patient ID</th>
@@ -23,6 +23,7 @@
             <th>Address</th>
             <th>Phone</th>
             <th>Email</th>
+            <th>Modify</th>
         </tr>
         </thead>
         <tbody>
@@ -41,7 +42,11 @@
                 <!-- Delete button within a form -->
                 <form th:action="@{/patients/delete}" method="post">
                     <input type="hidden" name="id" th:value="${patient.id}" />
-                    <button type="submit" class="delete-button">Delete</button>
+                    <button type="submit" class="common-button delete-button">Delete</button>
+                </form>
+                <form th:action="@{/patients/update}" method="get">
+                    <input type="hidden" name="id" th:value="${patient.id}" />
+                    <button type="submit" class="common-button update-button">Update</button>
                 </form>
             </td>
         </tr>

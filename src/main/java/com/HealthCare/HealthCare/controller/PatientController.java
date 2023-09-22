@@ -47,4 +47,22 @@ public class PatientController {
         return "redirect:/patients"; // Redirect back to the patient list
     }
 
+    @GetMapping("/update")
+    public String showUpdatePatientForm(@RequestParam Long id, Model model) {
+        // Retrieve the patient information by ID from your database or service
+        Patient patient = patientService.getPatient(id);
+
+        // Add the patient object to the model
+        model.addAttribute("patient", patient);
+
+        // Return the name of the HTML template
+        return "patients/update"; // The name of your HTML template for updating patients
+    }
+
+    @PostMapping("/update")
+    public String updatePatient(@ModelAttribute("patient") Patient updatedPatient) {
+        patientService.updatePatient(updatedPatient);
+
+        return "redirect:/patients"; // Redirect to the patient list page
+    }
 }

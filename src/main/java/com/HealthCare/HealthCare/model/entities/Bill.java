@@ -1,11 +1,22 @@
 package com.HealthCare.HealthCare.model.entities;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import org.springframework.data.annotation.Id;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Data
+@Getter
+@Entity
 public class Bill {
 
-    private int id;
+    @jakarta.persistence.Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private int patientId;
     private int appointmentId;
     private LocalDate date;
